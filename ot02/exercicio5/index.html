@@ -1,0 +1,67 @@
+<!-- ot02/exercicio5/index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>OT02 - Formulário Dinâmico</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    label { display: block; margin-top: 12px; font-weight: bold; }
+    input[type="text"], select { padding: 6px; width: 250px; }
+    .dados { margin-top: 20px; background: #f0f0f0; padding: 12px; border-radius: 6px; }
+    button { margin-top: 14px; padding: 8px 16px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h2>Formulário de Cadastro</h2>
+
+    <form @submit.prevent>
+      <label>Nome:</label>
+      <input type="text" v-model="nome" placeholder="Digite seu nome">
+
+      <label>Gênero:</label>
+      <label><input type="radio" value="Masculino" v-model="genero"> Masculino</label>
+      <label><input type="radio" value="Feminino" v-model="genero"> Feminino</label>
+      <label><input type="radio" value="Outro" v-model="genero"> Outro</label>
+
+      <label>Interesses:</label>
+      <label><input type="checkbox" value="Esportes" v-model="interesses"> Esportes</label>
+      <label><input type="checkbox" value="Música" v-model="interesses"> Música</label>
+      <label><input type="checkbox" value="Tecnologia" v-model="interesses"> Tecnologia</label>
+
+      <label>Cidade:</label>
+      <select v-model="cidade">
+        <option disabled value="">Escolha uma cidade</option>
+        <option>São Paulo</option>
+        <option>Rio de Janeiro</option>
+        <option>Belo Horizonte</option>
+        <option>Curitiba</option>
+      </select>
+    </form>
+
+    <div class="dados">
+      <p><strong>Nome:</strong> {{ nome || '—' }}</p>
+      <p><strong>Gênero:</strong> {{ genero || '—' }}</p>
+      <p><strong>Interesses:</strong> {{ interesses.length ? interesses.join(', ') : '—' }}</p>
+      <p><strong>Cidade:</strong> {{ cidade || '—' }}</p>
+    </div>
+  </div>
+
+  <script>
+    const { createApp } = Vue
+
+    createApp({
+      data() {
+        return {
+          nome: '',
+          genero: '',
+          interesses: [],
+          cidade: ''
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>

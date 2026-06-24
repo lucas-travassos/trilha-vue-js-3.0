@@ -1,0 +1,71 @@
+<!-- ot02/exercicio9/index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>OT02 - Ciclo de Vida</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .log { background: #1e1e1e; color: #9cdcfe; padding: 12px; border-radius: 6px; margin-top: 16px; }
+    p { margin: 4px 0; }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <h2>Ciclo de Vida do Componente</h2>
+    <p>Mensagem: {{ mensagem }}</p>
+    <p>Status da requisição: <strong>{{ statusRequisicao }}</strong></p>
+
+    <div class="log">
+      <p v-for="(log, index) in logs" :key="index">{{ log }}</p>
+    </div>
+  </div>
+
+  <script>
+    const { createApp } = Vue
+
+    createApp({
+      data() {
+        return {
+          mensagem: 'Olá, Vue.js!',
+          statusRequisicao: 'Aguardando...',
+          logs: []
+        }
+      },
+      beforeCreate() {
+        console.log('beforeCreate: componente está sendo criado...')
+      },
+      created() {
+        this.logs.push('created: componente criado com sucesso!')
+        console.log('created: componente criado com sucesso!')
+      },
+      beforeMount() {
+        this.logs.push('beforeMount: preparando para montar no DOM...')
+        console.log('beforeMount: preparando para montar no DOM...')
+      },
+      mounted() {
+        this.logs.push('mounted: componente montado no DOM!')
+        console.log('mounted: componente montado no DOM!')
+        this.simularRequisicao()
+      },
+      beforeUnmount() {
+        console.log('beforeUnmount: preparando para desmontar...')
+      },
+      unmounted() {
+        console.log('unmounted: componente desmontado.')
+      },
+      methods: {
+        simularRequisicao() {
+          this.statusRequisicao = 'Carregando dados...'
+          this.logs.push('mounted → simulando requisição à API...')
+          setTimeout(() => {
+            this.statusRequisicao = 'Dados carregados com sucesso!'
+            this.logs.push('Requisição concluída: dados recebidos.')
+          }, 2000)
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>
