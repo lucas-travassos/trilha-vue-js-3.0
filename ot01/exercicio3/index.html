@@ -1,0 +1,37 @@
+<!-- ot01/exercicio3/index.html -->
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>OT01 - Exercício 3</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+  <div id="app">
+    <h2>Posts da API</h2>
+    <ul>
+      <li v-for="post in posts" :key="post.id">
+        <strong>{{ post.id }}.</strong> {{ post.title }}
+      </li>
+    </ul>
+  </div>
+
+  <script>
+    const { createApp } = Vue
+
+    createApp({
+      data() {
+        return {
+          posts: []
+        }
+      },
+      async mounted() {
+        const resposta = await axios.get('https://jsonplaceholder.typicode.com/posts')
+        this.posts = resposta.data
+        console.log(this.posts)
+      }
+    }).mount('#app')
+  </script>
+</body>
+</html>

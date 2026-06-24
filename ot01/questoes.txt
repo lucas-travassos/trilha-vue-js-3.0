@@ -1,0 +1,237 @@
+OT01 - Introdução ao Desenvolvimento com Vue.js
+Respostas das Questões Teóricas
+
+================================================================================
+
+1. Defina o conceito de Vue.js e cite pelo menos três de suas principais características.
+
+Vue.js é um framework progressivo de JavaScript voltado para a construção de interfaces
+de usuário. É chamado de "progressivo" porque pode ser adotado de forma gradual: tanto
+para adicionar interatividade em uma página simples quanto para construir aplicações
+completas de página única (SPAs).
+
+Principais características:
+- Reatividade: os dados e a interface ficam sincronizados automaticamente. Quando um
+  dado muda, a tela é atualizada sem necessidade de manipular o DOM manualmente.
+- Curva de aprendizado fácil: sua sintaxe é simples e intuitiva, especialmente para quem
+  já conhece HTML, CSS e JavaScript básico.
+- Componentização: a aplicação é dividida em componentes reutilizáveis, facilitando a
+  organização e manutenção do código.
+
+================================================================================
+
+2. Explique a importância de usar Node.js em aplicações web. Como ele difere de outras
+tecnologias de back-end como PHP?
+
+Node.js permite executar JavaScript no servidor, fora do navegador. Sua principal
+vantagem é a arquitetura baseada em eventos e o modelo assíncrono (non-blocking I/O),
+o que o torna muito eficiente para lidar com múltiplas requisições simultâneas sem travar
+o servidor.
+
+Diferenças em relação ao PHP:
+- Node.js usa JavaScript (mesma linguagem do front-end), enquanto o PHP é uma
+  linguagem exclusiva do back-end.
+- Node.js é ideal para aplicações em tempo real (chats, notificações), enquanto PHP
+  é mais usado em sistemas tradicionais e CMS como WordPress.
+- Node.js tem modelo assíncrono por padrão; o PHP segue um modelo síncrono
+  mais simples.
+
+================================================================================
+
+3. O que são APIs RESTful? Cite suas principais vantagens no desenvolvimento de
+sistemas modernos.
+
+APIs RESTful são interfaces de comunicação entre sistemas que seguem os princípios
+arquiteturais do REST (Representational State Transfer). Elas utilizam o protocolo HTTP
+e organizam os dados em recursos identificados por URLs.
+
+Principais vantagens:
+- Independência de linguagem: um back-end em Node.js ou PHP pode ser consumido
+  por qualquer cliente (Vue.js, mobile, etc.).
+- Modularidade: cada recurso (usuários, produtos, pedidos) é tratado de forma
+  independente.
+- Uso do formato JSON: leve, legível e compatível com a maioria das linguagens modernas.
+- Escalabilidade: podem ser escaladas horizontalmente para suportar mais usuários.
+
+================================================================================
+
+4. Qual a função do npm no ecossistema Node.js? Explique como ele é usado no
+gerenciamento de dependências.
+
+O npm (Node Package Manager) é o gerenciador de pacotes padrão do Node.js. Ele
+permite instalar, atualizar e remover bibliotecas de terceiros no projeto.
+
+Ao executar "npm install nome-do-pacote", o npm baixa a biblioteca e a registra no
+arquivo package.json (lista de dependências do projeto) e na pasta node_modules
+(onde os arquivos da biblioteca ficam armazenados).
+
+O arquivo package.json garante que qualquer desenvolvedor que clonar o projeto possa
+reinstalar todas as dependências com um simples "npm install".
+
+================================================================================
+
+5. Explique a diferença entre os métodos HTTP GET, POST, PUT e DELETE em APIs RESTful.
+
+- GET: usado para buscar/listar dados. Não altera nenhum recurso no servidor.
+  Exemplo: GET /usuarios retorna a lista de usuários.
+
+- POST: usado para criar um novo recurso. Os dados são enviados no corpo da requisição.
+  Exemplo: POST /usuarios cria um novo usuário com os dados enviados.
+
+- PUT: usado para atualizar um recurso existente por completo.
+  Exemplo: PUT /usuarios/1 substitui todos os dados do usuário de ID 1.
+
+- DELETE: usado para remover um recurso.
+  Exemplo: DELETE /usuarios/1 remove o usuário de ID 1.
+
+================================================================================
+
+6. Descreva o que é o Vue CLI e como ele facilita o desenvolvimento de projetos Vue.js.
+
+O Vue CLI (Command Line Interface) é uma ferramenta de linha de comando que automatiza
+a criação e configuração de projetos Vue.js. Com um único comando ("vue create meu-projeto"),
+ele gera toda a estrutura de pastas, arquivos de configuração, e já integra ferramentas
+como Webpack, Babel e ESLint.
+
+Benefícios:
+- Elimina a configuração manual do ambiente.
+- Oferece um servidor de desenvolvimento com hot reload (atualização automática ao salvar).
+- Facilita a adição de plugins como Vue Router e Vuex.
+
+================================================================================
+
+7. Qual é o propósito do formato JSON em APIs RESTful? Por que ele é amplamente utilizado?
+
+JSON (JavaScript Object Notation) é o formato padrão para troca de dados em APIs RESTful.
+Ele representa dados como pares de chave e valor, em uma estrutura leve e legível.
+
+É amplamente utilizado porque:
+- É compatível com praticamente todas as linguagens de programação modernas.
+- É fácil de ler e escrever, tanto por humanos quanto por máquinas.
+- É nativo ao JavaScript, o que facilita o consumo direto no Vue.js sem conversões extras.
+- É mais leve que XML, reduzindo o volume de dados trafegados.
+
+================================================================================
+
+8. Compare o uso de Vue.js em uma aplicação front-end com o uso de bibliotecas como
+jQuery. Quais as vantagens do Vue.js?
+
+jQuery é uma biblioteca que simplifica a manipulação direta do DOM (adicionar/remover
+elementos, capturar eventos). O desenvolvedor precisa indicar manualmente o que deve
+mudar na tela.
+
+Vue.js, por outro lado, usa reatividade: os dados controlam a interface automaticamente.
+Quando um dado muda, o Vue atualiza o DOM sem que o desenvolvedor precise intervir.
+
+Vantagens do Vue.js sobre jQuery:
+- Código mais organizado e declarativo (o HTML descreve o que mostrar, não como fazer).
+- Sistema de componentes reutilizáveis.
+- Mais adequado para aplicações complexas e SPAs.
+- Menor necessidade de manipular o DOM manualmente, reduzindo bugs.
+
+================================================================================
+
+9. Cite dois cenários em que o PHP seria mais indicado que o Node.js para o
+desenvolvimento de um projeto.
+
+1. Sistemas que utilizam CMS (Content Management Systems) como WordPress, Joomla
+   ou Drupal, pois essas plataformas são construídas em PHP e demandam integração
+   direta com a linguagem.
+
+2. Projetos hospedados em servidores de hospedagem compartilhada (como os planos
+   básicos de hospedagem web), pois a maioria desses servidores suporta PHP
+   nativamente com Apache, sem necessidade de configuração adicional — algo que
+   o Node.js geralmente requer.
+
+================================================================================
+
+10. Explique a relação entre Vue.js e o DOM reativo. Como isso melhora a performance
+de uma aplicação?
+
+O DOM (Document Object Model) é a representação da estrutura HTML de uma página.
+Manipulá-lo diretamente é custoso em termos de performance.
+
+Vue.js utiliza um Virtual DOM: uma representação em memória do DOM real. Quando os
+dados mudam, o Vue calcula a diferença entre o Virtual DOM anterior e o novo (processo
+chamado de "diffing") e aplica apenas as mudanças necessárias no DOM real.
+
+Isso melhora a performance porque evita re-renderizações desnecessárias de toda a
+página, atualizando somente os elementos que realmente mudaram.
+
+================================================================================
+
+11. Qual é a importância de separar o front-end (Vue.js) do back-end (Node.js ou PHP)
+no desenvolvimento de aplicações?
+
+A separação entre front-end e back-end traz diversas vantagens:
+- Manutenção independente: é possível atualizar a interface sem mexer no servidor,
+  e vice-versa.
+- Reutilização: o mesmo back-end pode servir um site web, um aplicativo mobile e
+  um painel administrativo ao mesmo tempo.
+- Trabalho em equipe: equipes de front-end e back-end podem trabalhar em paralelo.
+- Escalabilidade: cada camada pode ser escalada de forma independente conforme a demanda.
+
+================================================================================
+
+12. O que é o comando npm install e como ele se diferencia de npm install -g?
+
+- "npm install nome-do-pacote": instala a biblioteca apenas dentro do projeto atual,
+  na pasta node_modules. A dependência fica registrada no package.json do projeto
+  e só está disponível naquele projeto.
+
+- "npm install -g nome-do-pacote": instala a biblioteca de forma global no sistema
+  operacional, ficando disponível em qualquer pasta e projeto. É usado para ferramentas
+  de linha de comando, como o Vue CLI ("npm install -g @vue/cli").
+
+================================================================================
+
+13. Por que o método POST em APIs RESTful é usado para criação de recursos?
+Dê um exemplo prático.
+
+O método POST é usado para criação porque ele envia dados no corpo da requisição
+(request body) para o servidor, que processa esses dados e cria um novo registro.
+Diferente do GET (que apenas lê) e do PUT (que atualiza um registro existente por ID),
+o POST não requer que o recurso já exista.
+
+Exemplo prático:
+Um formulário de cadastro de usuário envia os dados via POST para /api/usuarios.
+O servidor recebe nome e email, cria o novo usuário no banco de dados e retorna
+o registro criado com status 201 (Created).
+
+================================================================================
+
+14. Explique o conceito de modularidade em APIs RESTful e como isso pode beneficiar
+um projeto grande.
+
+Modularidade em APIs RESTful significa organizar os endpoints por recursos específicos
+e independentes entre si. Cada módulo cuida de uma responsabilidade:
+
+Exemplo:
+- /api/auth/login → módulo de autenticação
+- /api/produtos     → módulo de produtos
+- /api/pedidos      → módulo de pedidos
+
+Benefícios em projetos grandes:
+- Facilita a manutenção: uma mudança no módulo de produtos não afeta o de pedidos.
+- Permite que equipes diferentes trabalhem em módulos distintos simultaneamente.
+- Simplifica os testes, pois cada módulo pode ser testado de forma isolada.
+- Permite reutilizar o mesmo back-end para diferentes clientes (web, mobile, etc.).
+
+================================================================================
+
+15. Qual o papel do yarn no ecossistema de desenvolvimento? Compare-o com o npm.
+
+Yarn é um gerenciador de pacotes alternativo ao npm, criado pelo Facebook. Assim como
+o npm, ele instala e gerencia dependências de projetos JavaScript.
+
+Comparação:
+- Velocidade: o Yarn realiza instalações em paralelo, sendo geralmente mais rápido
+  que o npm em projetos com muitas dependências.
+- Arquivo de lock: o Yarn usa o yarn.lock para garantir que todos os desenvolvedores
+  instalem exatamente as mesmas versões dos pacotes. O npm usa o package-lock.json
+  com a mesma finalidade.
+- Comandos: enquanto no npm usa-se "npm install pacote", no Yarn usa-se "yarn add pacote".
+- Atualmente as diferenças de performance entre os dois foram reduzidas com as versões
+  mais recentes do npm, tornando a escolha mais uma questão de preferência.
+
+================================================================================
