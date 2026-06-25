@@ -1,41 +1,11 @@
+<script setup></script>
+
 <template>
-  <div id="app">
-    <Header />
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">Sobre</router-link>
-    </nav>
-    <router-view />
-    <Footer />
-  </div>
+  <h1>You did it!</h1>
+  <p>
+    Visit <a href="https://vuejs.org/" target="_blank" rel="noopener">vuejs.org</a> to read the
+    documentation
+  </p>
 </template>
 
-<script>
-import Header from './components/Header.vue'
-import Footer from './components/Footer.vue'
-
-export default {
-  components: { Header, Footer }
-}
-</script>
-
-<style>
-body {
-  font-family: Arial, sans-serif;
-  padding: 0;
-  margin: 0;
-}
-nav {
-  background: #2c3e50;
-  padding: 10px 20px;
-}
-nav a {
-  color: white;
-  margin-right: 12px;
-  text-decoration: none;
-}
-nav a.router-link-active {
-  font-weight: bold;
-  text-decoration: underline;
-}
-</style>
+<style scoped></style>
