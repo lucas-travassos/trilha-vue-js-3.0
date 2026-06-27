@@ -23,6 +23,15 @@
           </v-col>
         </v-row>
       </v-container>
+      <CadastroProdutos />
     </v-main>
   </v-app>
 </template>
+
+<script>
+import CadastroProdutos from './components/CadastroProdutos.vue'
+
+export default {
+  components: { CadastroProdutos },
+}
+</script>
